@@ -1,0 +1,132 @@
+---
+layout: page
+title: "About"
+description: "Hey, this is xzhangwwyu."
+header-img: "img/about-bg.jpg"
+---
+
+<!-- Language Selector -->
+<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英语 English </option>
+</select>
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+    <blockquote>
+		坐看水拍岸 笑迎风拂面.
+    </blockquote>
+    <br>小时候天马行空，无拘无束，总以为天高任鸟飞，海阔凭鱼跃。长大后发现，天确实很高，海确实很宽阔，而自己却是一步一个脚印在走<br>
+	<br>小时候以为学习就是为了解答作业中的题目。长大后发现，其实作业的题目也是编写出来的，对于出题者也是在完成他们自己的作业。步入社会后，发现出题的人变了，监督的人也变了，唯独不变的还是那无穷无尽的作业。其实一个人的成长和完成了多少道作业无关，因为那都是已有的答案。不断的在生活和学习中给自己出题，自己解答，自己反驳，再继续找到合理的答案，才能迎着岁月的流逝逆行
+
+    <p style="text-align:right;">
+        —— <a href="https://hanyu.baidu.com/shici/detail?pid=ac9d4e076fd541699ee118871cb3e999" target="_blank">柳宗元－「江雪」</a>
+    </p>
+
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+    <blockquote>
+        Talk is Cheap, Show me the Code.
+    </blockquote>
+
+    <p>
+		I have sought love, first, because it brings ecstasy - ecstasy so great that I would often have sacrificed all the rest of life for a few hours of this joy. I have sought it, next, because it relieves loneliness–that terrible loneliness in which one shivering consciousness looks over the rim of the world into the cold unfathomable lifeless abyss. I have sought it finally, because in the union of love I have seen, in a mystic miniature, the prefiguring vision of the heaven that saints and poets have imagined. This is what I sought, and though it might seem too good for human life, this is what–at last–I have found.
+    </p>
+	<p>
+		With equal passion I have sought knowledge. I have wished to understand the hearts of men. I have wished to know why the stars shine. And I have tried to apprehend the Pythagorean power by which number holds sway above the flux. A little of this, but not much, I have achieved.
+    </p>
+	<p>
+		Love and knowledge, so far as they were possible, led upward toward the heavens. But always pity brought me back to earth. Echoes of cries of pain reverberate in my heart. Children in famine, victims tortured by oppressors, helpless old people a burden to their sons, and the whole world of loneliness, poverty, and pain make a mockery of what human life should be. I long to alleviate this evil, but I cannot, and I too suffer.
+    </p>
+	<p>
+		This has been my life. I have found it worth living, and would gladly live it again if the chance were offered me.
+	</p>
+
+    <p style="text-align:right;">
+    -- <a href="https://baike.baidu.com/item/我为什么而活着" target="_blank"> Bertrand Arthur William Russell - What I Have Lived For? </a>
+
+    </p>
+
+</div>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    function onLanChange(index){
+        if(index == 0){
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }else{
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        }
+    }
+    onLanChange(0);
+</script>
+
+
+
+{% if site.duoshuo_username %}
+<!-- 多说评论框 start -->
+<div class="comment">
+    <div class="ds-thread"
+    {% if site.duoshuo_username == "huxblog" %}
+        data-thread-id="1187623191091085319"
+    {% else %}
+        data-thread-key="{{site.duoshuo_username}}/about"
+    {% endif %}
+
+    data-title="{{page.title}}"
+    data-url="{{site.url}}/about/"></div>
+</div>
+<!-- 多说评论框 end -->
+
+<!-- Duoshuo hacking -->
+<input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User hacking by Hux
+    var _user = document.getElementById('dsUser').value;
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+{% endif %}
+
+
+{% if site.disqus_username %}
+<!-- disqus 评论框 start -->
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread">
+
+    </div>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
