@@ -1,6 +1,6 @@
 # Site settings
 title: zhy blog
-SEOTitle: xzhangwwyu 博客 | zhy blog
+SEOTitle: zhy 博客 | zhy blog
 header-img: img/home-bg.jpg
 email: xzhangwwyu@gmail.com
 description: ""
@@ -60,10 +60,11 @@ kramdown:
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+ba_track_id: 2105d77e7fed898fdd731f48563031bd
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+ga_track_id: 'UA-133487506-1'            # Format: UA-xxxxxx-xx
+ga_domain: xzhangwwyu
+
 
 
 
@@ -90,3 +91,6 @@ friends: [
         href: "https://github.com/"
     }
 ]
+
+# for a future date
+future: true
