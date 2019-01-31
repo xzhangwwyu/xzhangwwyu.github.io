@@ -4,6 +4,7 @@ title:      "tech list"
 subtitle:   "git repo&blog&book"
 date:       2019-01-31 18:14:46
 author:     "zhy"
+catalog: true
 header-img: "img/home-bg.jpg"
 tags:
     - tech

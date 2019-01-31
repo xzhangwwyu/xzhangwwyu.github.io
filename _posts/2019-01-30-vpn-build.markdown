@@ -4,6 +4,7 @@ title:      "aws 搭建vpn"
 subtitle:   " \"2019新年第一篇\""
 date:       2019-01-30 23:11:34
 author:     "zhy"
+catalog: true
 header-img: "img/home-bg.jpg"
 tags:
     - tool

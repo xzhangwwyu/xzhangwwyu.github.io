@@ -12,6 +12,7 @@ title:      "aws 搭建vpn"
 subtitle:   " \"2019新年第一篇\""
 '"date:       $(date "+%Y-%m-%d %H:%M:%S")
 "'author:     "zhy"
+catalog: true
 header-img: "img/home-bg.jpg"
 tags:
     - tool
