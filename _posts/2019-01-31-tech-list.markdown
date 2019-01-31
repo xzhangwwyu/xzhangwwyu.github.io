@@ -1,0 +1,21 @@
+---
+layout:     post
+title:      "tech list"
+subtitle:   "git repo&blog&book"
+date:       2019-01-31 18:14:46
+author:     "zhy"
+header-img: "img/home-bg.jpg"
+tags:
+    - tech
+---
+
+> “读万卷书，行万里路”
+
+## github
+
+>* [程序员技能图谱](https://github.com/TeamStuQ/skill-map/blob/master/README.md)	
+>* [后端架构师技术图谱](https://github.com/xingshaocheng/architect-awesome)
+
+## repo
+
+>* [系统设计入门](https://github.com/donnemartin/system-design-primer)
