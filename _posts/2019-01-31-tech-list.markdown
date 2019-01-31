@@ -19,3 +19,4 @@ tags:
 ## repo
 
 >* [系统设计入门](https://github.com/donnemartin/system-design-primer)
+>* [hack](https://github.com/Hack-with-Github/Awesome-Hacking)
