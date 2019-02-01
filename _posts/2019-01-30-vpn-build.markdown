@@ -106,7 +106,4 @@ esac
 命令行使用shadowsocks，参考privoxy
 
 ## 参考
-<lo>
-<li>https://github.com/shadowsocks/shadowsocks-libev
-<li>https://my.oschina.net/zk875/blog/853410
-<lo>
+* [source](https://github.com/shadowsocks/shadowsocks-libev)
