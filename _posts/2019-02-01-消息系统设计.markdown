@@ -1,0 +1,60 @@
+---
+layout:     post
+title:      "消息系统设计"
+subtitle:   "\"与世隔绝可能么\""
+date:       2019-02-01 20:49:43
+author:     "zhy"
+catalog: true
+header-img: "img/home-bg.jpg"
+tags:
+    - system
+---
+
+> 事件告知外界的出口
+
+## 需求描述
+* 用户care消息发送是否能like成功
+* 用户care消息是否发送成功，但不需要实时的
+* 消息发送情况可以被统计，查询
+* 消息过期不会被发送
+* 消息有优先级
+* 可以考虑定时消息，但是需求不大
+
+## 技术选型
+* 消息队列 rabbitmq
+* 存储使用MongoDB
+* 语言使用go
+
+## 方案设计
+![image](https://wx1.sinaimg.cn/mw690/006Peaa1ly1fzrff9nymxj30fz0dfq3h.jpg)
+
+## 模块说明
+#### producer
+* 根据事先定义好的协议，讲不通类型的消息放入不通的topic
+* 至少包含的字段有producer信息、request-id、数据
+
+#### rabbitmq
+* 优先级队列
+* 定时队列
+* 消息可追踪（需要相关插件支持）
+
+#### consumer
+* 根据topic和类型讲消息发送给第三方的api
+* [速率控制](#limitratio)
+* 第三方api挂掉后的策略
+
+#### mongdb
+* 每条消息的记录，不记录消息体
+* 消息报表生成
+
+#### api
+* 提供消息是否到达的查询
+* 直接提供同步方式发送
+* 提供报表数据展示
+
+
+# 参考文献
+* [消息中间件选型分析](http://blog.didispace.com/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%80%89%E5%9E%8B%E5%88%86%E6%9E%90/){:target="_blank"}
+* [聊聊高并发系统之限流特技](https://jinnianshilongnian.iteye.com/blog/2305117){:target="_blank"}<span id="limitratio">
+
+

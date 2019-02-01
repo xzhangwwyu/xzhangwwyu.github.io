@@ -52,9 +52,9 @@ D状态即无法中断的休眠进程，是由于在等待IO，比如磁盘IO，
 
 ## 参考文档
 
-* [linux进程状态D和Z的处理](https://blog.csdn.net/eroswang/article/details/1774298)
-* [理解Linux系统负荷](http://www.ruanyifeng.com/blog/2011/07/linux_load_average_explained.html)
-* [What is an uninterruptable process?](https://stackoverflow.com/questions/223644/what-is-an-uninterruptable-process/224042)
-* [TASK_KILLABLE](https://lwn.net/Articles/288056/)
-* [Why “uninterruptible sleep” is not counted as “IDLE”?](https://unix.stackexchange.com/questions/62693/why-uninterruptible-sleep-is-not-counted-as-idle)
-* [uninterruptible D 状态](https://xiazemin.github.io/MyBlog/linux/2018/09/23/uninterruptible.html)
+* [linux进程状态D和Z的处理](https://blog.csdn.net/eroswang/article/details/1774298){:target="_blank"}
+* [理解Linux系统负荷](http://www.ruanyifeng.com/blog/2011/07/linux_load_average_explained.html){:target="_blank"}
+* [What is an uninterruptable process?](https://stackoverflow.com/questions/223644/what-is-an-uninterruptable-process/224042){:target="_blank"}
+* [TASK_KILLABLE](https://lwn.net/Articles/288056/){:target="_blank"}
+* [Why “uninterruptible sleep” is not counted as “IDLE”?](https://unix.stackexchange.com/questions/62693/why-uninterruptible-sleep-is-not-counted-as-idle){:target="_blank"}
+* [uninterruptible D 状态](https://xiazemin.github.io/MyBlog/linux/2018/09/23/uninterruptible.html){:target="_blank"}

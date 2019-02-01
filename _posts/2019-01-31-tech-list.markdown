@@ -14,10 +14,10 @@ tags:
 
 ## github
 
->* [程序员技能图谱](https://github.com/TeamStuQ/skill-map/blob/master/README.md)	
->* [后端架构师技术图谱](https://github.com/xingshaocheng/architect-awesome)
+>* [程序员技能图谱](https://github.com/TeamStuQ/skill-map/blob/master/README.md){:target="_blank"}
+>* [后端架构师技术图谱](https://github.com/xingshaocheng/architect-awesome){:target="_blank"}
 
 ## repo
 
->* [系统设计入门](https://github.com/donnemartin/system-design-primer)
->* [hack](https://github.com/Hack-with-Github/Awesome-Hacking)
+>* [系统设计入门](https://github.com/donnemartin/system-design-primer){:target="_blank"}
+>* [hack](https://github.com/Hack-with-Github/Awesome-Hacking){:target="_blank"}

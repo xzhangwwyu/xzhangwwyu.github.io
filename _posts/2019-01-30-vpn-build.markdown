@@ -106,4 +106,4 @@ esac
 命令行使用shadowsocks，参考privoxy
 
 ## 参考
-* [source](https://github.com/shadowsocks/shadowsocks-libev)
+* [source](https://github.com/shadowsocks/shadowsocks-libev){:target="_blank"}
