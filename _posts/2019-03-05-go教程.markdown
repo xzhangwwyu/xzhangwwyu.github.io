@@ -1,0 +1,18 @@
+---
+layout:     post
+title:      "go教程"
+subtitle:   " \"python慢了咋办？c++开发太慢咋办？\""
+date:       2019-03-05 20:37:29
+author:     "zhy"
+catalog: true
+header-img: "img/home-bg.jpg"
+tags:
+    - go
+---
+
+> 得意忘言
+
+# 初级入门教程
+* [http json](https://thenewstack.io/make-a-restful-json-api-go/){:target="_blank"}
+
+
