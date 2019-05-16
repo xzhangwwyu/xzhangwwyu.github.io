@@ -21,6 +21,6 @@ tags:
 ## 解决方案
 * 内部使用int64自增
 * 对外加密转换为字符串或者建立字符串到内部资源id的映射
-* 参考[Format Preserving Encryption](https://en.wikipedia.org/wiki/Format-preserving_encryption)加密
+* 参考[Format Preserving Encryption](https://en.wikipedia.org/wiki/Format-preserving_encryption){:target="_blank"}加密,或者[hashids](https://juejin.im/post/5ac9e913f265da237d0348ae){:target="_blank"}
 
 
