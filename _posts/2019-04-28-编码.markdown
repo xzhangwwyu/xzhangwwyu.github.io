@@ -12,14 +12,15 @@ tags:
 
 > 对外一致性的表述
 
-#场景描述
+## 场景描述
 * 资源如何标识
 * 如何快速的使用标识对应到真正资源的位置
 * 标识不能暴露资源的信息，如自增，被穷举等
 * 希望对不同应用方暴露不同的标识
 
-#解决方案
+## 解决方案
 * 内部使用int64自增
 * 对外加密转换为字符串或者建立字符串到内部资源id的映射
+* 参考[Format Preserving Encryption](https://en.wikipedia.org/wiki/Format-preserving_encryption)加密
 
 
