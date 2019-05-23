@@ -48,6 +48,16 @@ tags:
 * 自动化单测
 * 压测
 
+# 监控
+* metric
+* graylog
+
+# 安全
+* 反爬
+* 反作弊
+* 频控
+* 分流
+
 # 环境
 * dev
 * staging
