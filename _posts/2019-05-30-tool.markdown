@@ -1,0 +1,19 @@
+---
+layout:     post
+title:      "开发协作工具"
+subtitle:   " \"工欲善其事必先利其器\""
+date:       2019-05-30 19:31:38
+author:     "zhy"
+catalog: true
+header-img: "img/home-bg.jpg"
+tags:
+    - tool
+---
+
+> 磨刀不误砍柴工
+
+## 代码工具
+* gerrit
+
+## 协作工具
+* nextcloud + onlyoffice
