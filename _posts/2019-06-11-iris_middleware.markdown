@@ -26,4 +26,5 @@ tags:
 >* 使用于http请求
 >* 如果请求header没有x_request_id，注入x_request_id,response 的header将x_request_id返回
 >* 使用分布式uuid的方式生成x_request_id，prefix+mac+ip+pid+random+autoincrement
+>* 如果对外需要隐藏requestid，可以选择hashids进行加密
 >* [code](https://github.com/beaconzhang/iris_demo/blob/master/middleware/request_id.go){:target="_blank"} 
