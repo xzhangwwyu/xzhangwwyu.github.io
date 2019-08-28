@@ -1,0 +1,47 @@
+---
+layout:     post
+title:      "iptables 详解"
+subtitle:   " \"一夫当关 万夫莫开\""
+date:       2019-08-28 19:52:50
+author:     "zhy"
+catalog: true
+header-img: "img/home-bg.jpg"
+tags:
+    - tool
+---
+
+> ”墙内的人想出来，墙外的想进去“
+
+## iptables 简介
+### 是什么
+	iptables不是真正的防火墙，本质上是一个client，用户通过iptables将安全规则设置到对应的安全框架中去，这个安全框架即netfilter才是真正的防火墙，其位于内核空间；iptables是一个命令行工具，位于用户空间，使用iptables来操作netfilter，主要功能有
+>* 网络地址转换（NAT network address translate）
+>* 数据包内容修改
+>* 数据包的过滤
+
+### 原理
+* iptables是按照规则（rules）来完成墙的功能。规则的一般定义为：如果数据包头符合这样的条件，就这样处理这个数据包。规则分别指定数据包的源地址、目的地之、传输协议（tcp、udp、icmp）和服务类型（http、ftp、smtp）等。处理动作一般有放行（accept）、拒绝（reject）、丢弃（drop）等，防火墙的主要工作就是增删改查这些规则
+* 报文从网卡向应用程序交付的过程中，会经过不同的点，如是否是做转发，是否需要交付给某个应用程序等，这些不同的点设置相应的链（挂设置的规则），每个链包括不同的规则，报文每到一点就会去和这个点上所有的挂载的规则一一匹配，如果满足某个条件的话，将执行相应的动作，否则继续向下匹配。每个链中可能会有相同的规则，netfilter为这些相同的规则设置table，即相同的规则放在相应的表中。
+* 用户可以自定义链，但是自定义链不能直接使用，只能被某个默认的链当做动作去调用，本质上讲默认链进行分支，默认的链：
+
+>* prerouting 数据包进入路由表之前
+>* input 通过路由表后，目的地址为本机
+>* output 由本机产生，向外转发
+>* forward 通过路由表后，目的不为本机
+>* postrouting 发送到网卡之前
+
+![链示意图](https://s1.51cto.com/attachment/201304/203657722.png){:align="center"}
+
+* 相同功能的规则的集合即为表，每种表对应不同的功能，定义的所有规则都在iptables自定义的4中表中，不支持自定义表，创建规则默认是在filter表中，默认的表为：
+
+>* filter：默认的表，主要对于数据包惊醒过滤
+	
+
+
+
+
+
+## 参考文档
+>* http://www.zsythink.net/archives/1199
+>* https://liqiang.io/post/dive-in-iptables
+>* https://blog.51cto.com/wushank/1171768
