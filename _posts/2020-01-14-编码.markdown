@@ -1,0 +1,110 @@
+---
+layout:     post
+title:      "golang的[]byte、string、rune区别"
+subtitle:   " \"横看成岭侧成峰，远近高低各不同\""
+date:       2020-01-14 16:39:11
+author:     "zhy"
+catalog: true
+header-img: "img/home-bg.jpg"
+tags:
+    - go
+---
+
+> 符号之所以有意义，是因为大家约定成俗赋予其意义，通过不同符号以及排列组合来表达内心的世界
+
+## 码点、符号、字节的理解
+* 符号：我们见到的任意的标记，比如英文的'a'，汉字的'张'，表情😊，本质上是一个符号而已
+* 码点：我们把所有的符号按照顺序排列，即放到数组中，使用数组的下标表示每个符号，那么下标的值即为码点，参考[ASCII编码](https://zh.wikipedia.org/zh-hans/ASCII)
+* 字节：计算机表示的最小单位（首先于硬件），1byte=8bit，每bit只能是0或者1，也就是说一字节可以表示00000000-11111111（0~255）共256个数（2进制转十进制），所以1byte可以表示长度为256的数组的下标，即表示256个码点，进而可以表示256个符号
+
+## unicode、utf-8、ASCII理解
+* unicode：所有的字符集的集合，没有指定如何存储，如果对所有字符按照一定规则排序，那么下表对应的是码点
+* ASCII：英文字符于对应的二进制关系，即英文字符在计算机中的存储，使用一个字节的低7位表示
+* utf-8：Unicode的一种实现，使用边长的编码方式，使用1~4个字节表示一个符号，参考具体[编码](https://en.wikipedia.org/wiki/UTF-8)
+
+## []byte、rune、string理解
+* []byte：字节流，可以理解为utf-8编码后的字节流，表示在计算机的存储数据，每个byte可以使用\xXX表示，XX表示一个字节的十六进制，如"abcd张"可以表示为"\x61\x62\x63\x64\xe5\xbc\xa0"
+* rune: 可以理解为码点，在golang中伟int类型，如'张'，表示为24352（0x5F20），utf-8编码为'\xe5\xbc\xa0'
+* string：理解为只读的字节流，不可以修改，对于byte和string区别，可以[参考](https://syslog.ravelin.com/byte-vs-string-in-go-d645b67ca7ff)，需要注意的是range对string遍历是对utf-8解码后的遍历，即和string转化为rune后遍历结果一样，对byte遍历，本质上是每个字节遍历，详细见demo
+
+## 字符编码demo
+* 汉字的码点使用两个字节表示
+* 汉字的utf-8编码是三个字节，可以表示16bit，即两个字节
+* '张'的utf-8编码'\xe5\xbc\xa0'和码点0x5f20的对应关系如下
+
+```
+| 1 | 1 | 1 | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+-------------------------------------------------------------------------------------------------
+|       e       |       5       |       b       |       c       |       a       |       0       |     
+|         first byte            |           second byte         |            third byte         |
+|use three bytes| first byte bit|       |    second byte bit    |       |    third byte bit     |
+
+码点即rune值，即Unicode集合中的下表
+| 0 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+-----------------------------------------------------------------
+| first byte bit|    second byte bit    |    third byte bit     |
+|        5      |       f       |       2       |       0       |
+```
+
+## demo(golang)
+* 代码
+
+```
+package main
+
+import (
+    "fmt"
+)
+
+var (
+    demoS = `abc张`
+)
+
+func printByByte(s []byte){
+    tmpS := "printByByte:"
+    for i,v := range s{
+        tmpS = fmt.Sprintf("%s %d:%x",tmpS,i,v)
+    }
+    fmt.Println(tmpS)
+}
+
+func printByS(s string){
+    tmpS := "printByString:"
+    for i,v := range s{
+        tmpS = fmt.Sprintf("%s %d:%U",tmpS,i,v)
+    }
+    fmt.Println(tmpS)
+}
+
+func printByRune(r []rune){
+    tmpS := "printByRune:"
+    for i,v := range r{
+        tmpS = fmt.Sprintf("%s %d:%U",tmpS,i,v)
+    }
+    fmt.Println(tmpS)
+
+}
+
+func main(){
+    printByByte([]byte(demoS))
+    printByS(demoS)
+    printByRune([]rune(demoS))
+}
+```
+
+* 输出
+
+```
+printByByte: 0:61 1:62 2:63 3:e5 4:bc 5:a0
+printByString: 0:U+0061 1:U+0062 2:U+0063 3:U+5F20
+printByRune: 0:U+0061 1:U+0062 2:U+0063 3:U+5F20
+```
+
+## 参考文档
+* [ASCII编码](https://zh.wikipedia.org/zh-hans/ASCII){:target="_blank"}
+* [utf-8 encoding](https://en.wikipedia.org/wiki/UTF-8){:target="_blank"}
+* [byte和string区别](https://syslog.ravelin.com/byte-vs-string-in-go-d645b67ca7ff)
+* [ASCII、Unicode和UTF-8](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
+* [Strings, bytes, runes and characters in Go](https://blog.golang.org/strings)
+
+
