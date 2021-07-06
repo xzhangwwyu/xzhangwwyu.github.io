@@ -1,0 +1,24 @@
+---
+layout:     post
+title:      "all happy 自动化"
+subtitle:   " \"解放劳动力\""
+date:       2019-02-21 13:29:43
+author:     "zhy"
+catalog: true
+header-img: "img/home-bg.jpg"
+tags:
+    - other
+---
+
+> “能机器就无需人”
+
+#用户的期望
+* server可以在同一个机器上启动多个服务
+* client目前只支持在一台机器上启动一个服务
+* 手动设置后，可以点击测试按钮测试设置的是否正确
+* client 接受server端下发的命令，实时上报服务的状态
+
+#问题介绍及其解决方案
+###
+
+

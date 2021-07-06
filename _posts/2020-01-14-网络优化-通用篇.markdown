@@ -1,0 +1,16 @@
+---
+layout:     post
+title:      "aws 搭建vpn"
+subtitle:   " \"2019新年第一篇\""
+date:       2020-01-14 23:24:19
+author:     "zhy"
+catalog: true
+header-img: "img/home-bg.jpg"
+tags:
+    - tool
+---
+
+
+## 参考文档
+
+* []

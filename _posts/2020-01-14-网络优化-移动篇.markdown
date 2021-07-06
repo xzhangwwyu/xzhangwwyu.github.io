@@ -1,0 +1,16 @@
+---
+layout:     post
+title:      "aws 搭建vpn"
+subtitle:   " \"2019新年第一篇\""
+date:       2020-01-14 23:25:37
+author:     "zhy"
+catalog: true
+header-img: "img/home-bg.jpg"
+tags:
+    - tool
+---
+
+## 参考文档
+
+* [美团点评移动网络优化实践](https://tech.meituan.com/2017/03/17/shark-sdk.html)
+* [现代移动端网络短连接的优化手段总结：请求速度、弱网适应、安全保障](https://cloud.tencent.com/developer/article/1198380)
